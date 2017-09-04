@@ -83,10 +83,7 @@ namespace cochlear
             }
 
             List<int> resultInts = my.ConvertAll(p => Int32.Parse(p));
-
             resultInts.Sort((a, b) => -1 * a.CompareTo(b));
-
-            //my = my.OrderBy(q => q).ToList();
 
             var noGroups = resultInts.GroupBy(i => i).OrderByDescending(g => g.Count());
             foreach (var grp in noGroups)
