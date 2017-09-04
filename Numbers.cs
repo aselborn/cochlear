@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,10 +10,17 @@ namespace cochlear
 {
     static class Numbers
     {
-        static string textString = "asd123qwe457rty89234";
-        static string textString2 = "567zx01245cvbnm";
+        public static string textString = "asd123qwe457rty89234";
+        public static string textString2 = "567zx01245cvbnm";
 
         static Dictionary<string, int> result = new Dictionary<string, int>();
+
+        internal static void parseTextFile(string pathToFile)
+        {
+            String[] FileContent = File.ReadAllLines(pathToFile);
+            List<String> content = FileContent.ToList();
+            PrintMap(content);
+        }
 
         public static void DoNumbers()
         {
@@ -37,7 +45,7 @@ namespace cochlear
             List<String> inpStrings = new List<string>();
             foreach(string input in inputs)
             {
-                string filtered = rgx.Replace(input, "|");
+                string filtered = rgx.Replace(input, "|").Replace(".", "");
                 inpStrings = filtered.Split(new char[] { '|' }).ToList();
 
                 foreach (String inp in inpStrings)
