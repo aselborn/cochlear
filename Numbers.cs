@@ -90,6 +90,8 @@ namespace cochlear
 
             }
 
+            my = my.Where(p => !string.IsNullOrWhiteSpace(p)).ToList();
+
             List<int> resultInts = my.ConvertAll(p => Int32.Parse(p));
             resultInts.Sort((a, b) => -1 * a.CompareTo(b));
 
