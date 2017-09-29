@@ -37,7 +37,6 @@ namespace cochlear
             Console.WriteLine("This program sorts occurrences of numbers in a text-sequence");
             Console.WriteLine("If no argument is given the program will use the following text to find numbers:");
             Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine("{0}, {1}", Numbers.textString, Numbers.textString2);
             Console.WriteLine();
             Console.WriteLine("if argument is correct path to textfile, that textfile will be read.");
